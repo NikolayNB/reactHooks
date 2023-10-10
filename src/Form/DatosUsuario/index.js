@@ -4,8 +4,8 @@ import { ValidarEmail, ValidarPassword } from "./validaciones";
 
 const DatosUsuario = () => {
 
-  const [email, setEmail] = useState({value:"nikolay@aluracursos.com", valid: true});
-  const [password, setPassword] = useState({value:"abcabcaabc", valid: true});
+  const [email, setEmail] = useState({value:"", valid: null});
+  const [password, setPassword] = useState({value:"", valid: null});
 
     return (
       <Box
@@ -19,6 +19,9 @@ const DatosUsuario = () => {
         }}
         onSubmit={(e) => {
           e.preventDefault();
+          if (email.valid && password.valid){
+            console.log("Datos correctos");
+          }else{console.log("Datos incorrectos")}
           console.log(email, password);
         }}
       >
@@ -28,8 +31,8 @@ const DatosUsuario = () => {
           fullWidth
           margin="dense"
           type="email"
-          error={false}
-          helperText={false && "Ingresa un correo electrónico válido"}
+          error={email.valid === false}
+          helperText={email.valid === false && "Ingresa un correo electrónico válido"}
           value={email.value}
           onChange={(input) => {
             const email = input.target.value;
@@ -42,6 +45,8 @@ const DatosUsuario = () => {
           fullWidth
           margin="dense"
           type="password"
+          error={password.valid === false}
+          helperText={password.valid === false && "Ingresa una contraseña válida"}
           value={password.value}
           onChange={(input) => {
             const password = input.target.value;
