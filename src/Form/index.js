@@ -6,7 +6,8 @@ import DatosPersonales from "./DatosPersonales";
 import DatosEntrega from "./DatosEntrega";
 import Complete from "./Complete";
 import Stepper from "../Stepper";
-import { validarNombre, validarApellidos, validarTelefono, validarEmail, validarPassword } from "./validaciones";
+import { validarNombre, validarApellidos, validarTelefono } from "./DatosPersonales/validaciones.js";
+import { validarEmail, validarPassword} from "./DatosUsuario/validaciones.js"
 import Step from "./Step";
 
 const Form = () => {
@@ -22,7 +23,15 @@ const Form = () => {
        3:  <Complete />,
       };
 
+     const onSubmit = () => {};
+
+     const handleChange = (element) => {
+      const value = element.target.value;
+      console.log(value);
+     };
+
   const stepFLow = {
+
     0:{
       inputs: [
         {
@@ -31,7 +40,7 @@ const Form = () => {
           value: "",
           valid: null,
           helperText: "Ingrese un correo electrónico válido", 
-          onChange: () => {},
+          onChange: handleChange,
           validator: validarEmail, 
         },
         {
@@ -40,11 +49,12 @@ const Form = () => {
           value: "",
           valid: null,
           helperText: "Ingrese una contraseña válida",
-          onChange: () => {},
+          onChange: handleChange,
           validator: validarPassword,
         },
       ],
       buttonText: "Siguiente",
+      onSubmit,
     }
   }
 

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { TextField, Button, Box } from "@mui/material";
-import { ValidarEmail, ValidarPassword } from "./validaciones";
+import { validarEmail, validarPassword } from "./validaciones.js";
 
 const DatosUsuario = ({updateStep}) => {
 
@@ -38,7 +38,7 @@ const DatosUsuario = ({updateStep}) => {
           value={email.value}
           onChange={(input) => {
             const email = input.target.value;
-            setEmail({value: email, valid: ValidarEmail(email)})
+            setEmail({value: email, valid: validarEmail(email)})
           }}
         />
         <TextField
@@ -52,7 +52,7 @@ const DatosUsuario = ({updateStep}) => {
           value={password.value}
           onChange={(input) => {
             const password = input.target.value;
-            setPassword({value: password, valid: ValidarPassword(password)})
+            setPassword({value: password, valid: validarPassword(password)})
           }}
         />
         <Button variant="contained" type="submit">
