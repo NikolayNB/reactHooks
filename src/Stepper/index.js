@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Stepper, Step, StepLabel } from "@mui/material";
 
 const StepperComponent = (props) => {
-   
   const steps = ["Datos de usuario", "Datos personales", "Datos de entrega"];
 
   return (
