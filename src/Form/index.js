@@ -8,6 +8,7 @@ import Complete from "./Complete";
 import Stepper from "../Stepper";
 import Step from "./Step";
 
+
 //Validaciones
 import { validarEmail, validarPassword } from "./DatosUsuario/validaciones";
 import {
